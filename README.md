@@ -4,8 +4,8 @@ Real, reproducible LLM inference benchmarks on the **NVIDIA DGX Spark** (GB10 Gr
 128 GB unified LPDDR5x @ 273 GB/s) — with a focus on what the box actually does under **agentic
 workloads**: many parallel long-context sessions, not just single-stream chat.
 
-**📊 Live dashboard:** [jvr0x.com/dgx-spark-bench](https://jvr0x.com/dgx-spark-bench/)
-**🎬 Related:** [tok-sim](https://jvr0x.com/tok-sim/) — visual tokens/sec simulator
+**📊 Live dashboard:** [javierbits.com/dgx-spark-bench](https://javierbits.com/dgx-spark-bench/)
+**🎬 Related:** [tok-sim](https://javierbits.com/tok-sim/) — visual tokens/sec simulator
 
 Every published number is a real run of this harness on real hardware. No projections, no
 vendor numbers — and every series links to the exact recipe that produced it.
@@ -18,7 +18,7 @@ lmswitch on <recipe>  ──►  harness/bench.py  ──►  results/<run>.json
       on its own port)         sweep + metrics)      pinned provenance)
 ```
 
-Models are served with [**lmswitch**](https://github.com/jvr0x/lmswitch) — a small tool that
+Models are served with [**lmswitch**](https://github.com/javierbits/lmswitch) — a small tool that
 launches local LLMs (vLLM and SGLang via Docker, GGUF via llama.cpp) from per-model YAML configs and
 handles readiness polling. A **recipe** = one lmswitch bench-profile yaml + one harness config,
 so anyone with a Spark can reproduce a published series with two clones and three commands.
@@ -38,7 +38,7 @@ config is embedded in the results and shown in the dashboard's Config view.
 
 ```bash
 # 1. install lmswitch (see its README), then:
-git clone https://github.com/jvr0x/dgx-spark-bench && cd dgx-spark-bench
+git clone https://github.com/javierbits/dgx-spark-bench && cd dgx-spark-bench
 
 # 2. register the recipe with lmswitch and serve it
 ln -s "$PWD/recipes/qwen3.6-35b-nvfp4-nvidia/qwen3.6-35b-nvfp4-bench.yaml" <your-lmswitch-dir>/ai-models/
